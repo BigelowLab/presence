@@ -7,7 +7,7 @@
 qplot.ROC(
   x,
   xlab = "False Positive Rate (Specificity)",
-  ylab = "True Positive Rate (Sensitivity",
+  ylab = "True Positive Rate (Sensitivity)",
   title = "ROC",
   ...
 )

@@ -15,7 +15,9 @@ plot.ROC <- function(x,
                      use = c("base", "ggplot2", "ggplot")[2],
                      ...){
   
-  if (tolower(use[1]) == "ggplot2") return(qplot.ROC(x, xlab = xlab, ylab = ylab, title = title, ...))
+  if (tolower(use[1]) %in% c("ggplot", "ggplot2")) {
+    return(qplot.ROC(x, xlab = xlab, ylab = ylab, title = title, ...))
+  }
   
   on.exit({
     par(opar)
@@ -45,7 +47,7 @@ plot.ROC <- function(x,
 #' @return ggplot2 object
 qplot.ROC <- function(x,
                       xlab = "False Positive Rate (Specificity)",
-                      ylab = "True Positive Rate (Sensitivity", 
+                      ylab = "True Positive Rate (Sensitivity)", 
                       title = "ROC",
                       ...){
   
@@ -57,7 +59,7 @@ qplot.ROC <- function(x,
                   ggplot2::aes_string(x = "fpr", y = "tpr")) + 
     ggplot2::geom_step(colour = "black") + 
     ggplot2::geom_segment(ggplot2::aes(x = 0, y = 0, xend = 1, yend = 1), colour = "grey") +
-    ggplot2::labs(x = xlab, y = ylab, ...) +
+    ggplot2::labs(x = xlab, y = ylab, title = title, ...) +
     ggplot2::coord_fixed() + 
     ggplot2::annotate("text", x = auc$tx, y=auc$ty, label = auc$label, 
                       hjust = 1, vjust = 0) 

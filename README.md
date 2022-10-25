@@ -1,21 +1,15 @@
----
-title: "presence"
-output: github_document
----
+presence
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-This package provides tools for working with models prodcued using presence-only data such as [maxnet](https://github.com/mrmaxent/maxnet), maxent and others.
-
-
+This package provides tools for working with models prodcued using
+presence-only data such as [maxnet](https://github.com/mrmaxent/maxnet),
+maxent and others.
 
 ## Generate a dataset
 
-We'll use [maxnet](https://github.com/mrmaxent/maxnet) to generate data.
+We’ll use [maxnet](https://github.com/mrmaxent/maxnet) to generate data.
 
-```{r data}
+``` r
 suppressPackageStartupMessages({
   library(dplyr)
   library(maxnet)
@@ -33,7 +27,9 @@ x <- dplyr::tibble(pres = obs$presence,
 
 ## ROC
 
-```{r roc}
+``` r
 roc <- presence::ROC(x)
 plot(roc, use = "ggplot")
 ```
+
+![](README_files/figure-gfm/roc-1.png)<!-- -->
