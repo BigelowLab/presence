@@ -1,0 +1,16 @@
+Package: presence
+Type: Package
+Title: presence: tools in R for working with presence only modeling
+Version: 0.1.0
+Author: Ben Tupper
+Maintainer: Ben Tupper <btupper@bigelow.org>
+URL: https://github.com/bigelowlab/presence
+Description: Tools in R for working with presence only modeling.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+  graphics,
+  rlang,
+  dplyr,
+  ggplot2
+RoxygenNote: 7.2.1
